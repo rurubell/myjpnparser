@@ -7,10 +7,11 @@ perl
 perl moreutils  
 tesseract ocr  
 maven  
-imagemagick    
+imagemagick  
+curl  
 translate-shell https://github.com/soimort/translate-shell  
   
-`sudo apt-get install perl tesseract-ocr-jpn tesseract-ocr-jpn-vert maven liblist-moreutils-perl imagemagick`
+`sudo apt-get install perl tesseract-ocr-jpn tesseract-ocr-jpn-vert maven liblist-moreutils-perl imagemagick curl`
   
   
 ## Установка:  
