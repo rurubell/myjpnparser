@@ -38,3 +38,10 @@ translate-shell https://github.com/soimort/translate-shell
 Запустить geany.pl c ключем --run  
 
 `perl geany.pl --run`  
+  
+##ocr.space (опционально)
+
+Онлайн парсер, который в некоторых местах может справиться лучше чем tesseract  
+Чтобы начать им пользоваться, нужно получить api ключ на https://ocr.space/  
+Полученный ключ, записать в файл ./bin/perl/ocrspace_apikey  
+Повесить скрипт ./bin/perl/recognize_and_send_by_ocrspace.pl на удобный хоткей
