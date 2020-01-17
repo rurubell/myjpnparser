@@ -1,1 +1,1 @@
-/home/daniel/myjpnparser/geany.pl
+/home/daniel/Documents/Sources/Java/myjpnparser/geany.pl
