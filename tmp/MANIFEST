@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_72 (Oracle Corporation)
+Main-Class: src.MyMain
+Class-Path: ./lib/error_prone_annotations-2.0.18.jar ./lib/jsr305-1.3.9.jar ./lib/slf4j-api-1.6.6.jar ./lib/kuromoji-ipadic-0.9.0.jar ./lib/unix4j-base-0.4.jar ./lib/kanatools-1.3.0.jar ./lib/guava-23.0.jar ./lib/kuromoji-core-0.9.0.jar ./lib/j2objc-annotations-1.1.jar ./lib/animal-sniffer-annotations-1.14.jar ./lib/unix4j-command-0.4.jar 
