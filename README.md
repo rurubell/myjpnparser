@@ -15,8 +15,8 @@ translate-shell https://github.com/soimort/translate-shell
 ## Установка:  
 
 Установить требуемые зависимости  
-Скачать translate-shell и закинуть все его файлы в ./bin/bash/translate_shell
-Пометить ./bin/bash/translate_shell/translate как исполняемый
+Скачать translate-shell и закинуть все его файлы в ./bin/bash/translate_shell  
+Пометить ./bin/bash/translate_shell/translate как исполняемый  
 
 Запустить geany.pl c ключем --project  
   
