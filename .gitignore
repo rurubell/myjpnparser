@@ -1,3 +1,5 @@
 /bin/perl/ocrspace_apikey
+/*.jar
 /lib/*
+/tmp/*
 /bin/bash/translat_eshell*
