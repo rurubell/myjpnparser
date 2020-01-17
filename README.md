@@ -10,7 +10,8 @@ maven
 translate-shell https://github.com/soimort/translate-shell  
   
 `sudo apt-get install perl tesseract-ocr-jpn tesseract-ocr-jpn-vert maven liblist-moreutils-perl`
-
+  
+  
 ## Установка:  
 
 Установить требуемые зависимости  
@@ -20,4 +21,13 @@ translate-shell https://github.com/soimort/translate-shell
 
 Запустить geany.pl c ключем --libupd  
   
-`perl geany.pl --project`  
+`perl geany.pl --libupd`  
+  
+
+Запустить geany.pl c ключем --make  
+  
+`perl geany.pl --make`  
+  
+  
+## Как пользоваться:  
+  
