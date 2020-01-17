@@ -1,6 +1,6 @@
-# myjpnparser
+# myjpnparser  
   
-##Зависимости:
+## Зависимости:  
   
 oracle java 12  
 perl  
