@@ -34,7 +34,7 @@ require $S_SELF_DIR_PATH . ".geany/pl/MyFileUtils.pl";
 chdir( $S_SELF_DIR_PATH ) or die "Не могу зайти в директорию " . $S_SELF_DIR_PATH . " !\n";
 
 system( "mkdir ./lib/" );
-system( "mkdir ./bin/bash/translat_eshell" );
+system( "mkdir -p ./bin/bash/translate_shell" );
 
 #Путь до директории с сорцами
 my $S_SOURCES_DIR_PATH = healDirPath( $S_SELF_DIR_PATH . "java/" );
