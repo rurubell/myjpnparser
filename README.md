@@ -31,3 +31,7 @@ translate-shell https://github.com/soimort/translate-shell
   
 ## Как пользоваться:  
   
+Повесить скрипт ./bin/perl/recognize_and_send_by_tesseract.pl на удобный вам хоткей  
+Запустить geany.pl c ключем --run  
+
+`perl geany.pl --run`  
