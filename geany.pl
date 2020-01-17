@@ -33,7 +33,7 @@ require $S_SELF_DIR_PATH . ".geany/pl/MyFileUtils.pl";
 #Переходим в директорию скрипта
 chdir( $S_SELF_DIR_PATH ) or die "Не могу зайти в директорию " . $S_SELF_DIR_PATH . " !\n";
 
-system( "mkdir ./lib/" );
+system( "mkdir -p ./lib/" );
 system( "mkdir -p ./bin/bash/translate_shell" );
 
 #Путь до директории с сорцами
