@@ -7,9 +7,10 @@ perl
 perl moreutils  
 tesseract ocr  
 maven  
+imagemagick  
 translate-shell https://github.com/soimort/translate-shell  
   
-`sudo apt-get install perl tesseract-ocr-jpn tesseract-ocr-jpn-vert maven liblist-moreutils-perl`
+`sudo apt-get install perl tesseract-ocr-jpn tesseract-ocr-jpn-vert maven liblist-moreutils-perl imagemagick`
   
   
 ## Установка:  
@@ -38,6 +39,8 @@ translate-shell https://github.com/soimort/translate-shell
 Запустить geany.pl c ключем --run  
 
 `perl geany.pl --run`  
+  
+Используйте хоткей для запуска скрипта и выделяйте нужный вам текст  
   
 ## ocr.space (опционально)
 
