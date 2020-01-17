@@ -4,4 +4,4 @@
 /lib/*
 /arch/*
 /tmp/*
-/bin/bash/translat_eshell*
+/bin/bash/translate_shell/*
