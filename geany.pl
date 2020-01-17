@@ -237,6 +237,7 @@ sub run
 sub updateLibs
 {
 	system( "mvn clean dependency:copy-dependencies" );
+	createMAKEFILE();
 }
 
 
