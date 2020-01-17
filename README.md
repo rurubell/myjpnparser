@@ -19,15 +19,14 @@ translate-shell https://github.com/soimort/translate-shell
 Скачать translate-shell и закинуть все его файлы в ./bin/bash/translate_shell  
 Пометить ./bin/bash/translate_shell/translate как исполняемый  
 
-Запустить geany.pl c ключем --project  
-  
-`perl geany.pl --project`  
-
 Запустить geany.pl c ключем --libupd  
   
-`perl geany.pl --libupd`  
+`perl geany.pl --libupd` 
   
-
+Запустить geany.pl c ключем --project  
+  
+`perl geany.pl --project`   
+  
 Запустить geany.pl c ключем --make  
   
 `perl geany.pl --make`  
