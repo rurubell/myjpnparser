@@ -1,0 +1,1 @@
+/home/daniel/Documents/Sources/Java/myjpnparser/geany.pl

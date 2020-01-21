@@ -6,6 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import java.sql.DriverManager;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import src.data.MyJapanWord;
 import src.file.MyTextFileReader;
 import src.params.MyParams;
@@ -34,7 +40,7 @@ public class MySimKanji
 	{
 		MyTextFileReader mtfr = new MyTextFileReader();
 		MyLogToStdout mlts = new MyLogToStdout();
-		mlts.writeMess( "Read simkanji file: \"" + MyParams.getStringValue( "simkanji_path" ) + "\"..." );
+		mlts.writeMess( "Read simkanji from DB: \"" + MyParams.getStringValue( "db_path" ) + "\"..." );
 		HashMap< String, ArrayList< String > > res_map = new HashMap< String, ArrayList< String > >();
 		
 		for( String s_pos : mtfr.readFileAsStringAL( MyParams.getStringValue( "simkanji_path" ) ) )
