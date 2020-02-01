@@ -139,7 +139,7 @@ public class MyAddNewSimKanjiWin extends JFrame
 			
 			MySimKanji msk = new MySimKanji();
 			msk.changeOrAddSimilar( this.s_str, s_similars_al );
-			msk.saveToFile();
+			msk.saveToBase();
 			this_link.setVisible( false );
 		}
 	}

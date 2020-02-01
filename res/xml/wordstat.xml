@@ -78,7 +78,7 @@
 <word>もん</word><val>3</val>
 <word>働かせる</word><val>1</val>
 <word>あえて</word><val>1</val>
-<word>た</word><val>25</val>
+<word>た</word><val>26</val>
 <word>だ</word><val>43</val>
 <word>きまる</word><val>1</val>
 <word>忠告</word><val>2</val>
@@ -668,7 +668,7 @@
 <word>対応</word><val>1</val>
 <word>ややこしい</word><val>1</val>
 <word>兵器</word><val>2</val>
-<word>今夜</word><val>6</val>
+<word>今夜</word><val>7</val>
 <word>どうも</word><val>1</val>
 <word>掟</word><val>1</val>
 <word>通る</word><val>3</val>
@@ -808,7 +808,7 @@
 <word>必死</word><val>2</val>
 <word>お世話</word><val>1</val>
 <word>改良</word><val>2</val>
-<word>死ぬ</word><val>2</val>
+<word>死ぬ</word><val>3</val>
 <word>見通し</word><val>1</val>
 <word>半年</word><val>1</val>
 <word>ちゃーん</word><val>1</val>
@@ -1042,7 +1042,7 @@
 <word>闇</word><val>2</val>
 <word>痛い</word><val>1</val>
 <word>侮辱</word><val>1</val>
-<word>来る</word><val>14</val>
+<word>来る</word><val>15</val>
 <word>気軽</word><val>1</val>
 <word>心から</word><val>1</val>
 <word>地雷</word><val>1</val>
@@ -1610,7 +1610,7 @@
 <word>棚</word><val>1</val>
 <word>かぶる</word><val>1</val>
 <word>最近</word><val>3</val>
-<word>うち</word><val>10</val>
+<word>うち</word><val>11</val>
 <word>招き</word><val>2</val>
 <word>割り込む</word><val>1</val>
 <word>正しく</word><val>1</val>
@@ -1967,7 +1967,7 @@
 <word>投げる</word><val>1</val>
 <word>自体</word><val>2</val>
 <word>ピンチ</word><val>1</val>
-<word>じゃう</word><val>1</val>
+<word>じゃう</word><val>2</val>
 <word>見守る</word><val>2</val>
 <word>お金</word><val>2</val>
 <word>放題</word><val>2</val>
@@ -2032,6 +2032,7 @@
 <word>住む</word><val>2</val>
 <word>釣る</word><val>1</val>
 <word>血筋</word><val>1</val>
+<word>お気に入り</word><val>2</val>
 <word>欠</word><val>1</val>
 <word>趣味</word><val>3</val>
 <word>次</word><val>2</val>
@@ -2713,7 +2714,7 @@
 <word>なめる</word><val>1</val>
 <word>ふり</word><val>1</val>
 <word>物理</word><val>1</val>
-<word>人</word><val>39</val>
+<word>人</word><val>40</val>
 <word>崇高</word><val>1</val>
 <word>複雑</word><val>1</val>
 <word>同年代</word><val>1</val>

@@ -21,42 +21,31 @@ import src.util.log.MyLogToStdout;
 public class MyDBConnector
 {
 	//Получить Connection объект
-	public Connection connect( String s_db_path )
+	public Connection makeConnection( String s_db_path ) throws SQLException
 	{
 		String s_url = "jdbc:sqlite:" + s_db_path;
-		Connection conn = null;
-		
-		try { conn = DriverManager.getConnection( s_url ); }
-		catch (SQLException e) { System.out.println( e.getMessage() ); }
+		Connection conn = DriverManager.getConnection( s_url );
 		
 		return conn;
 	}
 	
 	
 	//Выполнить SQL запрос и получить ResultSet
-	public ResultSet executeSQLAndGetResultSet( Connection conn, String s_sql )
+	public ResultSet executeSQLAndGetResultSet( Connection conn, String s_sql ) throws SQLException
 	{
 		ResultSet rs = null;
 		
-		try
-		{
 			Statement stmt = conn.createStatement();
 			rs = stmt.executeQuery( s_sql );
-		}
-		catch( SQLException sql_e ) { sql_e.printStackTrace(); }
 		
 		return rs;
 	}
 	
 	
 	//Выполнить SQL запрос
-	public void executeSQL( Connection conn, String s_sql )
+	public void executeSQL( Connection conn, String s_sql ) throws SQLException
 	{
-		try
-		{
 			Statement stmt = conn.createStatement();
-			stmt.executeQuery( s_sql );
-		}
-		catch( SQLException sql_e ) { sql_e.printStackTrace(); }
+			stmt.executeUpdate( s_sql );
 	}
 }

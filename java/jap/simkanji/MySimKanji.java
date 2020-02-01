@@ -16,6 +16,7 @@ import src.data.MyJapanWord;
 import src.file.MyTextFileReader;
 import src.params.MyParams;
 import src.util.log.MyLogToStdout;
+import src.db.MyDBConnector;
 
 
 public class MySimKanji
@@ -38,18 +39,28 @@ public class MySimKanji
 	//Читаем все списки похожих канзи в карту
 	private HashMap< String, ArrayList< String > > readToHashMap()
 	{
+		MyDBConnector mdc = new MyDBConnector();
 		MyTextFileReader mtfr = new MyTextFileReader();
 		MyLogToStdout mlts = new MyLogToStdout();
 		mlts.writeMess( "Read simkanji from DB: \"" + MyParams.getStringValue( "db_path" ) + "\"..." );
 		HashMap< String, ArrayList< String > > res_map = new HashMap< String, ArrayList< String > >();
 		
-		for( String s_pos : mtfr.readFileAsStringAL( MyParams.getStringValue( "simkanji_path" ) ) )
+		try
 		{
-			if( this.isCorrectString( s_pos ) ) 
+			Connection conn = mdc.makeConnection( MyParams.getStringValue( "db_path" ) );
+			ResultSet rs = mdc.executeSQLAndGetResultSet( conn, "SELECT word, similar FROM similar_words" );
+			
+			while( rs.next() )
 			{
-				res_map.put( this.parseKanji( s_pos ), this.parseSimKanji( s_pos ) ); 
+				String s_word = rs.getString( "word" );
+				String s_similar = rs.getString( "similar" );
+				ArrayList< String > s_al_similar = this.parseSimKanji( s_similar );
+				res_map.put( s_word, s_al_similar );
 			}
+			
+			conn.close();
 		}
+		catch( SQLException sql_e ) { sql_e.printStackTrace(); }
 		
 		return res_map;
 	}
@@ -71,86 +82,49 @@ public class MySimKanji
 	}
 	
 	
-	//Сохранить список в файл
-	public void saveToFile() { this.saveToFile( MyParams.getStringValue( "simkanji_path" ) ); }
-	public void saveToFile( String s_path )
+	//Сохранить список в базу
+	public void saveToBase()
 	{
-		ArrayList< String > res_list = new ArrayList< String >();
-		MyTextFileReader mtfr = new MyTextFileReader();
+		String s_sql = 
+			"DELETE FROM similar_words;\n" +
+			"VACUUM;\n" +
+			"BEGIN TRANSACTION;\n";
 		
 		for( Entry entry : this.res_map.entrySet() ) 
 		{
-			String s_str = "<knj>" + entry.getKey() + "</knj><sim>";
-			ArrayList< String > s_sim_al = ( ArrayList< String > ) entry.getValue();
+			String s_word = (String) entry.getKey();
+			String s_sim = "";
 			
+			ArrayList< String > s_sim_al = ( ArrayList< String > ) entry.getValue();
 			for( int i = 0; i < s_sim_al.size(); i++ )
 			{
-				if( ( i + 1 ) < s_sim_al.size() ) { s_str += s_sim_al.get(i) + "<::>"; }
-				else { s_str += s_sim_al.get(i); }
+				if( ( i + 1 ) < s_sim_al.size() ) { s_sim += s_sim_al.get(i) + "<::>"; }
+				else { s_sim += s_sim_al.get(i); }
 			}
 			
-			s_str += "</sim>";
-			res_list.add( s_str );
+			s_sql += "INSERT INTO similar_words (word, similar) VALUES( \'" + s_word + "\', \'" + s_sim + "\' );\n";
 		}
 		
-		mtfr.writeALToFile( s_path, res_list );
-	}
-	
-	
-	//Проверка строки на корректность
-	public static boolean isCorrectString( String s_string )
-	{
-		if
-		(
-			( s_string.indexOf( "<knj>" ) != -1 ) && 
-			( s_string.indexOf( "</knj>" ) != -1 ) && 
-			( s_string.indexOf( "<sim>" ) != -1 ) && 
-			( s_string.indexOf( "</sim>" ) != -1 )
-		)
-		{ return true; }
-		return false;
-	}
-	
-	
-	//Распарсить кандзи
-	private String parseKanji( String s_string )
-	{
-		MyLogToStdout mlts = new MyLogToStdout();
-		String s_res = "";
-		String s_start_tag = "<knj>";
-		String s_end_tag = "</knj>";
+		s_sql += "COMMIT;\n";
 		
 		try
 		{
-			int n_start = s_string.indexOf( s_start_tag ) + s_start_tag.length();
-			int n_end = s_string.indexOf( s_end_tag );
-			s_res = s_string.substring( n_start, n_end );
+			MyDBConnector mdc = new MyDBConnector();
+			Connection conn = mdc.makeConnection( MyParams.getStringValue( "db_path" ) );
+			mdc.executeSQL( conn, s_sql );
+			conn.close();
 		}
-		catch( Exception e ) { mlts.writeMess( "Не удалось прочесть кандзи из строки - \"" + s_string + "\"" ); }
-		
-		return s_res;
+		catch( SQLException sql_e ) { sql_e.printStackTrace(); }
 	}
 	
 	
 	//Распарсить похожие канзи
 	private ArrayList< String > parseSimKanji( String s_string )
 	{
-		MyLogToStdout mlts = new MyLogToStdout();
 		ArrayList< String > s_res_al = new ArrayList< String >();
-		String s_res = "";
-		String s_start_tag = "<sim>";
-		String s_end_tag = "</sim>";
-		
-		try
-		{
-			int n_start = s_string.indexOf( s_start_tag ) + s_start_tag.length();
-			int n_end = s_string.indexOf( s_end_tag );
-			s_res = s_string.substring( n_start, n_end );
-		}
-		catch( Exception e ) { mlts.writeMess( "Не удалось прочесть похожие канзи из строки - \"" + s_string + "\"" ); }
 		
 		//Разбить строку на подстроки по "<::>"
-		String[] s_parts = s_res.split( "<::>" );
+		String[] s_parts = s_string.split( "<::>" );
 		for( int i = 0; i < s_parts.length; i++ ) { s_res_al.add( s_parts[i] ); }
 		
 		return s_res_al;
