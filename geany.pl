@@ -174,7 +174,7 @@ sub createMAKEFILE
 	
 	for( my $i = 0; $i < @s_libs; $i++ ) 
 	{ 
-		$s_libs_string .= "./" . `realpath --relative-to=./ $s_libs[ $i ]`;
+		$s_libs_string .= "\n ./" . `realpath --relative-to=./ $s_libs[ $i ]`;
 		chomp( $s_libs_string );
 		$s_libs_string .= " ";
 	}

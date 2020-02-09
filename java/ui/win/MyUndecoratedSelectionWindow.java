@@ -38,6 +38,7 @@ public class MyUndecoratedSelectionWindow extends JFrame
 			this.setSize( n_width, n_height );
 			this.setUndecorated( true );
 			
+			this.setType( Type.POPUP );
 			this.setOpacity( 0.35f );
 			this.setBackground( bg_color );
 			

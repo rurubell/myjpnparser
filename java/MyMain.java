@@ -24,19 +24,24 @@ import src.jap.dict.jmdict.MyJMDICT;
 import src.jap.dict.edict2.MyEdict2;
 import src.jap.autorepl.*;
 import src.jap.wordstat.MyWordStat;
-import src.ui.win.MyJapToRuJardicTranslateWin;
+import src.ui.win.*;
 import src.ui.icon.MyIconLoader;
 import src.net.MyGetSender;
+
+import src.MyThread;
 
 
 public class MyMain
 {
 	public static void main( String[] args )
 	{
-		MyMain.init( args );
+		MyUndecoratedFullscreenWindow mufw = new MyUndecoratedFullscreenWindow();
+		mufw.setVisible( true );
 		
-		MyServer ms = new MyServer();
-		ms.startServer();
+		//MyMain.init( args );
+		
+		//MyServer ms = new MyServer();
+		//ms.startServer();
 	}
 	
 	
